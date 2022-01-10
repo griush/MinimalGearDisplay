@@ -2,10 +2,11 @@
   "name": "Minimal Gear Display",
   "version": "1.0",
   "author": "griush",
-  "description": "",
+  "description": "Just shows your current gear.",
   "tags": [
-    "info"
+    "info",
+    "gears"
   ],
   "country": "Spain",
-  "url": ""
+  "url": "https://github.com/griush/MinimalGearDisplay"
 }
