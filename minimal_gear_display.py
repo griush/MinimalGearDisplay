@@ -3,13 +3,13 @@ import ac
 import acsys
 
 l_gear = 0
+l_shadow = 0
 gear = 0
 gear_text = "N"
 
 app_window = 0
 
 def acMain(ac_version):
-    global l_gear, app_window
 
     app_name = "Minimal Gear Display"
 
@@ -22,13 +22,22 @@ def acMain(ac_version):
     ac.setIconPosition(app_window, 0, -9001)
     ac.setBackgroundOpacity(app_window, 0)
     ac.addRenderCallback(app_window, acUpdate)
-
+    
+    # Shadow label creation
+    global l_shadow
+    l_shadow = ac.addLabel(app_window, gear_text)
+    ac.setPosition(l_shadow, 30, 5)
+    ac.setFontAlignment(l_shadow, "center")
+    ac.setFontSize(l_shadow, 85)
+    ac.setFontColor(l_shadow, 0.1, 0.1, 0.1, 0.7)
+    
     # Label creation
+    global l_gear
     l_gear = ac.addLabel(app_window, gear_text)
     ac.setPosition(l_gear, 25, 0)
     ac.setFontAlignment(l_gear, "center")
     ac.setFontSize(l_gear, 85)
-
+    
     return app_name
 
 def acUpdate(deltaT):
@@ -50,4 +59,5 @@ def acUpdate(deltaT):
         else:
             gear_text = str(gear - 1)
 
+        ac.setText(l_shadow, "{}".format(gear_text))
         ac.setText(l_gear, "{}".format(gear_text))
