@@ -1,3 +1,16 @@
+"""
+    Minimal Gear Display 1.2
+    
+    minimal_gear_display.py made by griush (Github profile: https://github.com/griush/)
+    made for Assetto Corsa app Minimal Gear Display (Github repo: https://github.com/griush/MinimalGearDisplay)
+                                                    (Race Department: https://www.racedepartment.com/downloads/minimal-gear-display.47703/)
+
+    Licensed under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+
+    Thanks to Rombik for "SimInfo" class.
+
+"""
+
 import ac
 import acsys
 
@@ -11,8 +24,8 @@ try:
     from third_party.sim_info import info
 
 except Exception:
-        ac.console("LRev : import Error: %s" % traceback.format_exc())
-        ac.log("LRev : import Error: %s" % traceback.format_exc())
+        ac.console("MGD : import Error: %s" % traceback.format_exc())
+        ac.log("MGD : import Error: %s" % traceback.format_exc())
 
 l_gear = 0
 l_shadow = 0
@@ -68,7 +81,7 @@ def acUpdate(deltaT):
     maxRPM = info.static.maxRpm
     rpms = ac.getCarState(0, acsys.CS.RPM)
     if gear_c > 1:
-        if maxRPM - rpms < 450:
+        if maxRPM - rpms < 400:
             ac.setFontColor(l_gear, 1, 0, 0, 1)
         elif maxRPM - rpms < 1250:
             ac.setFontColor(l_gear, 0, 1, 0, 1)
