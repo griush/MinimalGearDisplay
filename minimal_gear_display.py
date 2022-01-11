@@ -26,7 +26,7 @@ def acMain(ac_version):
     # Shadow label creation
     global l_shadow
     l_shadow = ac.addLabel(app_window, gear_text)
-    ac.setPosition(l_shadow, 30, 5)
+    ac.setPosition(l_shadow, 28, 3)
     ac.setFontAlignment(l_shadow, "center")
     ac.setFontSize(l_shadow, 85)
     ac.setFontColor(l_shadow, 0.1, 0.1, 0.1, 0.7)
