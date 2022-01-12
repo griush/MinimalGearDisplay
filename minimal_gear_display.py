@@ -11,12 +11,12 @@
 
 """
 
-import ac
-import acsys
-
 import os
 import sys
 import traceback
+
+import ac
+import acsys
 
 try:
 
@@ -27,6 +27,12 @@ except Exception:
         ac.console("MGD : import Error: %s" % traceback.format_exc())
         ac.log("MGD : import Error: %s" % traceback.format_exc())
 
+""" Settings """
+limitRPMPerCent = 0.04
+limitRPM = 0
+optimalRPM = 1300 # Not used
+
+""" Objects """
 l_gear = 0
 l_shadow = 0
 
@@ -39,7 +45,11 @@ app_window = 0
 
 def acMain(ac_version):
 
+    global limitRPMPerCent, limitRPM
+    
     app_name = "Minimal Gear Display"
+    
+    limitRPM = info.static.maxRpm * limitRPMPerCent
 
     # Window creation
     global app_window
@@ -70,7 +80,7 @@ def acMain(ac_version):
     return app_name
 
 def acUpdate(deltaT):
-    global l_gear, gear, rpms
+    global l_gear, gear, rpms, limitRPM
 
     gear_c = ac.getCarState(0, acsys.CS.Gear)
 
@@ -80,15 +90,16 @@ def acUpdate(deltaT):
     """ Label color update """
     maxRPM = info.static.maxRpm
     rpms = ac.getCarState(0, acsys.CS.RPM)
+    
     if gear_c > 1:
-        if maxRPM - rpms < 400:
+        if maxRPM - rpms < limitRPM:
             ac.setFontColor(l_gear, 1, 0, 0, 1)
-        elif maxRPM - rpms < 1250:
-            ac.setFontColor(l_gear, 0, 1, 0, 1)
+        # elif maxRPM - rpms < optimalRPM:
+        #     ac.setFontColor(l_gear, 0, 1, 0, 1)
         else:
             ac.setFontColor(l_gear, 1, 1, 1, 1)
     else:
-        if maxRPM - rpms < 400:
+        if maxRPM - rpms < limitRPM:
             ac.setFontColor(l_gear, 1, 0, 0, 1)
         else:
             ac.setFontColor(l_gear, 1, 1, 1, 1)
