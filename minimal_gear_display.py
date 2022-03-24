@@ -1,5 +1,5 @@
 """
-    Minimal Gear Display 1.2
+    Minimal Gear Display 1.2.1
     
     minimal_gear_display.py made by griush          (Github profile:    https://github.com/griush/)
     made for Assetto Corsa app Minimal Gear Display (Github repo:       https://github.com/griush/MinimalGearDisplay)
