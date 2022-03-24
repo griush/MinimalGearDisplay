@@ -1,9 +1,9 @@
 """
     Minimal Gear Display 1.2
     
-    minimal_gear_display.py made by griush (Github profile: https://github.com/griush/)
-    made for Assetto Corsa app Minimal Gear Display (Github repo: https://github.com/griush/MinimalGearDisplay)
-                                                    (Race Department: https://www.racedepartment.com/downloads/minimal-gear-display.47703/)
+    minimal_gear_display.py made by griush          (Github profile:    https://github.com/griush/)
+    made for Assetto Corsa app Minimal Gear Display (Github repo:       https://github.com/griush/MinimalGearDisplay)
+                                                    (Race Department:   https://www.racedepartment.com/downloads/minimal-gear-display.47703/)
 
     Licensed under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
 
@@ -30,7 +30,7 @@ except Exception:
 """ Settings """
 limitRPMPerCent = 0.04
 limitRPM = 0
-optimalRPM = 1300 # Not used
+optimalRPM = 1300 # Not currently used
 
 """ Objects """
 l_gear = 0
